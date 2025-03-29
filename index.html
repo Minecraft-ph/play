@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Centered Logo with Version Selector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Minecraft-style font -->
+    <style>
+        body {
+            background-image: url('MINECRAFT-BACKGROUND.gif'); /* Background GIF */
+            background-size: cover; /* Ensure the background covers the entire screen */
+            background-position: center; /* Center the background */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin: 0;
+            font-family: 'Press Start 2P', cursive; /* Minecraft-style font */
+        }
+        img {
+            width: 500px; /* Size of the Minecraft logo */
+        }
+        select {
+            margin-top: 20px; /* Space between logo and dropdown */
+            padding: 15px 20px; /* Padding inside the dropdown */
+            font-size: 20px; /* Font size of the options */
+            font-family: 'Press Start 2P', cursive; /* Apply Minecraft-style font */
+            color: white; /* White text color */
+            background-color: #2E8B57; /* Darker green background for the dropdown */
+            border: 3px solid black; /* Black border around the dropdown */
+            border-radius: 0px; /* Remove rounded corners */
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border 0.3s ease, transform 0.3s ease; /* Smooth background, border, and scale transition */
+        }
+        select:hover {
+            background-color: #2b7a46; /* Darker green on hover */
+            border-color: white; /* Change border color to white on hover */
+            transform: scale(1.05); /* Grow the dropdown slightly when hovered */
+        }
+        select:focus {
+            border-color: white; /* Change border color to white when dropdown is selected */
+        }
+        option {
+            background-color: #2E8B57; /* Matching background for options */
+        }
+        option:hover {
+            background-color: #555; /* Gray background when hovering over options */
+            border: 1px solid black; /* Black border on option hover */
+        }
+        .play-button {
+            margin-bottom: 10px; /* Reduced space between play button and dropdown */
+            width: 250px; /* Size of the Play button */
+            height: auto; /* Maintain aspect ratio of the image */
+            cursor: pointer; /* Change cursor on hover */
+            transition: transform 0.3s ease, border 0.3s ease; /* Smooth transition effect for scaling and border */
+            border: 3px solid black; /* Thin black border around the button */
+        }
+        .play-button:hover {
+            transform: scale(1.1); /* Grow the button by 10% when hovered */
+            border-color: #fff; /* Change the border color to white when hovered */
+        }
+    </style>
+</head>
+<body>
+    <!-- Clickable Minecraft logo that redirects to a link -->
+    <a href="https://example.com" target="_blank"> <!-- Replace with your desired link -->
+        <img src="MINECRAFT-LOGO.png" alt="Minecraft Logo">
+    </a>
+
+    <!-- Play button image above the dropdown -->
+    <img src="MINECRAFT-PLAY.png" class="play-button" onclick="playGame()" alt="Play Button">
+
+    <!-- Dropdown for selecting version -->
+    <select id="versionSelector">
+        <option value="1.5.2">1.5.2</option>
+        <option value="1.8.8">1.8.8</option>
+        <option value="1.12.2">1.12.2</option>
+    </select>
+
+    <script>
+        function playGame() {
+            // Get the selected version from the dropdown
+            const selectedVersion = document.getElementById('versionSelector').value;
+
+            // Define the links for each version
+            let url = "";
+            if (selectedVersion === "1.5.2") {
+                url = "https://minecraft-ph.github.io/play/Minecraft%201.5.2.html"; // Replace with your actual link for version 1.5.2
+            } else if (selectedVersion === "1.8.8") {
+                url = "https://example.com/minecraft-1.8.8"; // Replace with your actual link for version 1.8.8
+            } else if (selectedVersion === "1.12.2") {
+                url = "https://example.com/minecraft-1.12.2"; // Replace with your actual link for version 1.12.2
+            }
+
+            // Open the corresponding link in a new tab
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
